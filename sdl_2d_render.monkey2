@@ -45,15 +45,15 @@ Function SDL_CreateRenderer:SDL_Renderer Ptr(window:SDL_Window Ptr,index:Int,fla
 '    SDL_CreateTexture
 '    SDL_CreateTextureFromSurface
 '    SDL_CreateWindowAndRenderer
-'    SDL_DestroyRenderer
-'    SDL_DestroyTexture
+Function SDL_DestroyRenderer(renderer:SDL_Renderer Ptr)
+Function SDL_DestroyTexture(texture:SDL_Texture Ptr)
 '    SDL_GL_BindTexture
 '    SDL_GL_UnbindTexture
 '    SDL_GetNumRenderDrivers
 '    SDL_GetRenderDrawBlendMode
 '    SDL_GetRenderDrawColor
 '    SDL_GetRenderDriverInfo
-'    SDL_GetRenderTarget
+Function SDL_GetRenderTarget:SDL_Texture Ptr(renderer:SDL_Renderer Ptr)
 '    SDL_GetRenderer
 '    SDL_GetRendererInfo
 '    SDL_GetRendererOutputSize
@@ -89,8 +89,7 @@ Function SDL_RenderPresent (renderer : SDL_Renderer Ptr)
 '    SDL_RenderTargetSupported
 '    SDL_SetRenderDrawBlendMode
 Function SDL_SetRenderDrawColor (renderer:SDL_Renderer Ptr,r:UByte,g:UByte,b:UByte,a:UByte)
-				
-'    SDL_SetRenderTarget
+Function SDL_SetRenderTarget (renderer:SDL_Renderer Ptr,texture:SDL_Texture Ptr)
 '    SDL_SetTextureAlphaMod
 '    SDL_SetTextureBlendMode
 '    SDL_SetTextureColorMod
@@ -139,6 +138,13 @@ Const SDL_TEXTUREACCESS_TARGET:SDL_TextureAccess
 Const SDL_TEXTUREACCESS_STATIC:SDL_TextureAccess
 
 Function SDL_CreateTextureFromSurface:SDL_Texture Ptr(renderer:SDL_Renderer Ptr,surface:SDL_Surface Ptr)
+
+
+Function SDL_RenderCopy:Int(renderer:SDL_Renderer Ptr,texture:SDL_Texture Ptr,srcrect:SDL_Rect Ptr,dstrect:SDL_Rect Ptr)
+Function SDL_RenderCopyEx:Int(renderer:SDL_Renderer Ptr,texture:SDL_Texture Ptr,srcrect:SDL_Rect Ptr,dstrect:SDL_Rect Ptr,angle:Double,center:SDL_Point Ptr,flip:SDL_RendererFlip)
+
+
+
 
 Struct SDL_PixelFormat
 
